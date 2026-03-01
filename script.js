@@ -27,4 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Image Modal Logic
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("expanded-img");
+    const closeModal = document.querySelector(".close-modal");
+
+    // Open modal when any gallery image (or winner image) is clicked
+    document.querySelectorAll(".gallery-img").forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+    });
+
+    // Close modal on "X" click
+    if (closeModal) {
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
+
+    // Close modal when clicking outside the image
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 });
