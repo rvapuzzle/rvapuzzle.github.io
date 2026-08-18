@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RVA Puzzle League Timer</title>
+<style>
+    body {
+        background-color: black;
+        color: #ff0000;
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding-top: 2vh;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 7vw;
+        margin: 0;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
+    }
+    h2 {
+        font-size: 4vw;
+        margin: 1vh 0 3vh 0;
+    }
+    #timer {
+        font-size: 16vw;
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: 4vh;
+        text-shadow: 0 0 2vw #ff0000;
+    }
+    #results {
+        font-size: 4vw;
+        text-align: left;
+        width: 60%;
+        min-width: 300px;
+    }
+    ol {
+        padding-left: 5vw;
+        margin-top: 0;
+    }
+    li {
+        margin-bottom: 2vh;
+    }
+</style>
+</head>
+<body>
+
+    <h1>RVA Puzzle League</h1>
+    <h2>Mar 17</h2>
+    <div id="timer">01:30:00</div>
+    <div id="results">
+        <ol id="time-list"></ol>
+    </div>
+
+    <script>
+        let isRunning = false;
+        let startTime = 0;
+        let timerInterval;
+        const durationMs = 90 * 60 * 1000; 
+        const timerDisplay = document.getElementById('timer');
+        const timeList = document.getElementById('time-list');
+
+        function formatTime(ms) {
+            if (ms < 0) ms = 0;
+            let totalSeconds = Math.floor(ms / 1000);
+            let hours = Math.floor(totalSeconds / 3600);
+            let minutes = Math.floor((totalSeconds % 3600) / 60);
+            let seconds = totalSeconds % 60;
+
+            return String(hours).padStart(2, '0') + ':' +
+                   String(minutes).padStart(2, '0') + ':' +
+                   String(seconds).padStart(2, '0');
+        }
+
+        function updateTimer() {
+            let elapsed = Date.now() - startTime;
+            let remaining = durationMs - elapsed;
+
+            if (remaining <= 0) {
+                clearInterval(timerInterval);
+                timerDisplay.textContent = "00:00:00";
+            } else {
+                timerDisplay.textContent = formatTime(remaining);
+            }
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'KeyF') {
+                toggleFullScreen();
+            }
+
+            if (event.code === 'Space') {
+                event.preventDefault(); 
+
+                if (!isRunning) {
+                    isRunning = true;
+                    startTime = Date.now();
+                    timerInterval = setInterval(updateTimer, 100);
+                } else {
+                    let elapsed = Date.now() - startTime;
+                    
+                    if (elapsed > durationMs) elapsed = durationMs;
+
+                    let listItem = document.createElement('li');
+                    listItem.textContent = formatTime(elapsed);
+                    timeList.appendChild(listItem);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
