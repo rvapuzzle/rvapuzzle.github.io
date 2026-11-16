@@ -25,7 +25,7 @@ Existing dates, times, finishing times, photos, and ticket URLs are preserved. I
 
 ## Still requires release verification
 
-- Authenticated repository access or installation of the package; no changes pushed to GitHub from this workspace.
+- Review and merge the proposed upgrade before activating the new publishing setup.
 - One-time Pages source change to GitHub Actions and a successful workflow run.
 - Manual mobile, screen-reader, and third-party checkout verification; no WCAG certification claimed.
 - Host confirmation of written instructions, visual signals, visible timing, restroom details, and other accommodations.
@@ -47,4 +47,4 @@ Generated pages and images live in `_site/`, not the legacy root HTML. Website d
 - Browser inspection of homepage and event details completed. Keyboard Enter opened a photo, focus moved to Close, Escape closed it, and focus returned to its original link.
 - Exact pinned Pillow dependency installed successfully and used for the final build.
 - Displayed header logo derivative: 9,986 bytes versus original 6,644,077 bytes. This is an asset-size comparison, not a measured page-load time or Lighthouse score.
-- GitHub-hosted workflows have not run yet because authenticated GitHub access is not connected.
+- A pull-request validation workflow builds the site, runs tests and link checks, and uploads a website-preview artifact. Consult the PR checks for the latest hosted run status.
