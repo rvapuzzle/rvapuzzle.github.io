@@ -1,0 +1,69 @@
+name: "Host \u00b7 Publish results"
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Results date: YYYY-MM-DD (same date replaces existing results)"
+        required: true
+        type: string
+      team_1:
+        description: "1 place team name (optional)"
+        required: false
+        type: string
+      time_1:
+        description: "1 place time, e.g. 38m 53s"
+        required: true
+        type: string
+      team_2:
+        description: "2 place team name (optional)"
+        required: false
+        type: string
+      time_2:
+        description: "2 place time, e.g. 38m 53s"
+        required: true
+        type: string
+      team_3:
+        description: "3 place team name (optional)"
+        required: false
+        type: string
+      time_3:
+        description: "3 place time, e.g. 38m 53s"
+        required: true
+        type: string
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: rva-content-edit
+  cancel-in-progress: false
+jobs:
+  edit:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Validate and save form
+        env:
+          FORM_INPUTS: ${{ toJSON(inputs) }}
+        run: python tools/manage.py results
+      - name: Check build before saving changes
+        run: python tools/build.py
+      - name: Commit content
+        run: |
+          git config user.name "RVA publishing"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/
+          if ! git diff --cached --quiet; then
+            git commit -m "Update results through host form"
+            git push
+          fi
+  publish:
+    needs: edit
+    uses: ./.github/workflows/build-deploy.yml

@@ -1,0 +1,56 @@
+[
+  {
+    "date": "2026-11-14",
+    "title": "Competition results",
+    "entries": [
+      {
+        "place": 1,
+        "team": "",
+        "time": "38m 53s",
+        "photo": "pics/nov/14.nov.1st.png",
+        "alt": "Team awarded 1st place at the 2026-11-14 competition."
+      },
+      {
+        "place": 2,
+        "team": "",
+        "time": "46m 31s",
+        "photo": "pics/nov/14.nov.2nd.png",
+        "alt": "Team awarded 2nd place at the 2026-11-14 competition."
+      },
+      {
+        "place": 3,
+        "team": "",
+        "time": "54m 57s",
+        "photo": "pics/nov/14.nov.3rd.png",
+        "alt": "Team awarded 3rd place at the 2026-11-14 competition."
+      }
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "title": "Competition results",
+    "entries": [
+      {
+        "place": 1,
+        "team": "",
+        "time": "46m 12s",
+        "photo": "pics/oct/24.oct.1st.png",
+        "alt": "Team awarded 1st place at the 2026-10-24 competition."
+      },
+      {
+        "place": 2,
+        "team": "",
+        "time": "54m 26s",
+        "photo": "pics/oct/24.oct.2nd.png",
+        "alt": "Team awarded 2nd place at the 2026-10-24 competition."
+      },
+      {
+        "place": 3,
+        "team": "",
+        "time": "56m 6s",
+        "photo": "pics/oct/24.oct.3rd.png",
+        "alt": "Team awarded 3rd place at the 2026-10-24 competition."
+      }
+    ]
+  }
+]

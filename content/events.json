@@ -1,0 +1,53 @@
+[
+  {
+    "id": "2026-11-17-starr-hill",
+    "title": "Speed Puzzling at Starr Hill",
+    "start": "2026-11-17T19:00",
+    "end": "2026-11-17T21:00",
+    "venue": "Starr Hill Beer Hall & Rooftop — Scott’s Addition",
+    "address": "3406 W Leigh Street, Richmond, VA 23230",
+    "price": "",
+    "ticket_url": "https://www.tickettailor.com/checkout/new-session/id/9323561/chk/bd5ebfa8901edb23b5c25c0280850809/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true&show_event_filter=false",
+    "description": "Race to complete a 500-piece puzzle in 90 minutes. Bring a team of up to 4, or sign up solo and we’ll match you up. Winners get prizes, and every team keeps their puzzle.",
+    "status": "scheduled",
+    "access": {
+      "step_free": "confirmed",
+      "notes": "The organizer confirms wheelchair access to the venue and the puzzle event. Contact us in writing about any specific seating or access needs."
+    },
+    "venue_id": "starr-hill"
+  },
+  {
+    "id": "2026-12-12-basic-city",
+    "title": "Speed Puzzling at Basic City Beer Co.",
+    "start": "2026-12-12T13:00",
+    "end": "2026-12-12T15:00",
+    "venue": "Basic City Beer Co. — Richmond Southside",
+    "address": "212 W 6th Street, Richmond, VA",
+    "price": "",
+    "ticket_url": "https://www.tickettailor.com/checkout/new-session/id/9323564/chk/031962276efa0ae2041150f150a4fa1b/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true&show_event_filter=false",
+    "description": "Race to complete a 500-piece puzzle in 90 minutes. Bring a team of up to 4, or sign up solo and we’ll match you up. Winners get prizes, and every team keeps their puzzle.",
+    "status": "scheduled",
+    "access": {
+      "step_free": "confirmed",
+      "notes": "The organizer confirms wheelchair access to the venue and the puzzle event. Contact us in writing about any specific seating or access needs."
+    },
+    "venue_id": "basic-city"
+  },
+  {
+    "id": "2026-12-29-starr-hill",
+    "title": "Speed Puzzling at Starr Hill",
+    "start": "2026-12-29T13:00",
+    "end": "2026-12-29T15:00",
+    "venue": "Starr Hill Beer Hall & Rooftop — Scott’s Addition",
+    "address": "3406 W Leigh Street, Richmond, VA 23230",
+    "price": "",
+    "ticket_url": "https://www.tickettailor.com/checkout/new-session/id/9323565/chk/5aa1973db6a95aeca82ba80d8cc95a77/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true&show_event_filter=false",
+    "description": "Race to complete a 500-piece puzzle in 90 minutes. Bring a team of up to 4, or sign up solo and we’ll match you up. Winners get prizes, and every team keeps their puzzle.",
+    "status": "scheduled",
+    "access": {
+      "step_free": "confirmed",
+      "notes": "The organizer confirms wheelchair access to the venue and the puzzle event. Contact us in writing about any specific seating or access needs."
+    },
+    "venue_id": "starr-hill"
+  }
+]
