@@ -1,0 +1,85 @@
+name: "Host \u00b7 Update event accessibility"
+on:
+  workflow_dispatch:
+    inputs:
+      event_id:
+        description: "Event ID from its page URL"
+        required: true
+        type: string
+      written_instructions:
+        description: "Written competition instructions"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      visual_signals:
+        description: "Visual start and finish signals"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      visible_timer:
+        description: "Visible countdown timer"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      step_free:
+        description: "Step-free entrance"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      accessible_restroom:
+        description: "Accessible restroom"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      hearing_loop:
+        description: "Hearing loop or assistive listening system"
+        required: false
+        type: choice
+        default: "Keep current"
+        options: ["Keep current", "confirmed", "unavailable", "not_confirmed"]
+      notes:
+        description: "Confirmed access details, venue noise/lighting notes; CLEAR removes"
+        required: false
+        type: string
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: rva-content-edit
+  cancel-in-progress: false
+jobs:
+  edit:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Validate and save form
+        env:
+          FORM_INPUTS: ${{ toJSON(inputs) }}
+        run: python tools/manage.py access
+      - name: Check build before saving changes
+        run: python tools/build.py
+      - name: Commit content
+        run: |
+          git config user.name "RVA publishing"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/
+          if ! git diff --cached --quiet; then
+            git commit -m "Update access through host form"
+            git push
+          fi
+  publish:
+    needs: edit
+    uses: ./.github/workflows/build-deploy.yml

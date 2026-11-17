@@ -1,0 +1,58 @@
+[
+  {
+    "id": "gallery-1",
+    "path": "pics/gallery/1.jpg",
+    "alt": "A colorful puzzle box beside a glass of beer.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-2",
+    "path": "pics/gallery/2.jpg",
+    "alt": "Teams work on puzzles at tables throughout the brewery.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-3",
+    "path": "pics/gallery/3.jpg",
+    "alt": "Four puzzlers lean over a table to assemble their puzzle.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-4",
+    "path": "pics/gallery/4.jpg",
+    "alt": "A team poses behind their table holding puzzle boxes.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-5",
+    "path": "pics/gallery/5.jpg",
+    "alt": "Four teammates work together around a puzzle-covered table.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-6",
+    "path": "pics/gallery/6.jpg",
+    "alt": "A team sorts puzzle pieces at a brewery table.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-7",
+    "path": "pics/gallery/7.jpg",
+    "alt": "A wide view of teams puzzling beneath the brewery’s high ceiling.",
+    "caption": "",
+    "event_id": ""
+  },
+  {
+    "id": "gallery-8",
+    "path": "pics/gallery/8.jpg",
+    "alt": "Four puzzlers assemble a colorful puzzle beside an indoor planter.",
+    "caption": "",
+    "event_id": ""
+  }
+]
